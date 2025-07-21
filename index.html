@@ -12,6 +12,7 @@
       height: 100vh;
       font-family: Arial, sans-serif;
       overflow: hidden;
+      margin: 0;
     }
 
     .container {
@@ -34,9 +35,9 @@
 
     .buttons {
       position: relative;
-      width: 200px;
-      height: 50px;
-      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
     }
 
     button {
@@ -54,15 +55,8 @@
       background: #ff5d8f;
     }
 
-    #yesBtn {
-      position: relative;
-      left: -40px; /* Geser ke kiri */
-    }
-
     #noBtn {
       position: absolute;
-      left: 120px; /* Geser kanan biar nggak nutup Yes */
-      top: 0;
     }
 
     #result {
@@ -84,7 +78,8 @@
   </div>
 
   <audio id="bgm" autoplay loop>
-    <source src="https://drive.google.com/uc?export=download&id=1cP_RhXuAJfbgsui7Y5S9s6u-hZ7v4eoY" type="audio/mpeg">
+    <!-- Ganti dengan link GitHub Pages kamu -->
+    <source src="music.mp3" type="audio/mpeg">
   </audio>
 
   <script>
@@ -98,11 +93,11 @@
     });
 
     noBtn.addEventListener('mouseover', () => {
-      const container = document.querySelector('.buttons');
-      const maxX = container.clientWidth - noBtn.clientWidth;
-      const maxY = container.clientHeight - noBtn.clientHeight;
+      const maxX = window.innerWidth - noBtn.clientWidth;
+      const maxY = window.innerHeight - noBtn.clientHeight;
       const i = Math.floor(Math.random() * maxX);
       const j = Math.floor(Math.random() * maxY);
+      noBtn.style.position = 'absolute';
       noBtn.style.left = `${i}px`;
       noBtn.style.top = `${j}px`;
     });
