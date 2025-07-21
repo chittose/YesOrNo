@@ -34,7 +34,6 @@
     }
 
     .buttons {
-      position: relative;
       display: flex;
       justify-content: center;
       gap: 20px;
@@ -56,7 +55,7 @@
     }
 
     #noBtn {
-      position: absolute;
+      position: fixed;
     }
 
     #result {
@@ -78,7 +77,6 @@
   </div>
 
   <audio id="bgm" autoplay loop>
-    <!-- Ganti dengan link GitHub Pages kamu -->
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
@@ -97,7 +95,6 @@
       const maxY = window.innerHeight - noBtn.clientHeight;
       const i = Math.floor(Math.random() * maxX);
       const j = Math.floor(Math.random() * maxY);
-      noBtn.style.position = 'absolute';
       noBtn.style.left = `${i}px`;
       noBtn.style.top = `${j}px`;
     });
